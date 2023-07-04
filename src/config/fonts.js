@@ -1,0 +1,41 @@
+import {
+    Poppins100Thin,
+    Poppins100Thin_Italic,
+    Poppins200ExtraLight,
+    Poppins200ExtraLight_Italic,
+    Poppins300Light,
+    Poppins300Light_Italic,
+    Poppins400Regular,
+    Poppins400Regular_Italic,
+    Poppins500Medium,
+    Poppins500Medium_Italic,
+    Poppins700Bold,
+    Poppins600SemiBold,
+    Poppins700Bold_Italic,
+    Poppins800ExtraBold,
+    Poppins800ExtraBold_Italic,
+    Poppins900Black,
+    Poppins900Black_Italic,
+} from '@expo-google-fonts/poppins';
+
+export default {
+    Poppins: {
+        Poppins100Thin,
+        Poppins100Thin_Italic,
+        Poppins200ExtraLight,
+        Poppins200ExtraLight_Italic,
+        Poppins300Light,
+        Poppins300Light_Italic,
+        Poppins400Regular,
+        Poppins400Regular_Italic,
+        Poppins500Medium,
+        Poppins500Medium_Italic,
+        Poppins700Bold,
+        Poppins600SemiBold,
+        Poppins700Bold_Italic,
+        Poppins800ExtraBold,
+        Poppins800ExtraBold_Italic,
+        Poppins900Black,
+        Poppins900Black_Italic,
+    }
+}
