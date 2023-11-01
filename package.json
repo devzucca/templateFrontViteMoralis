@@ -48,7 +48,7 @@
     "vite-plugin-env": "^1.0.1",
     "web3": "^1.7.4",
     "yup": "^0.32.11",
-    "zustand": "^4.1.1"
+    "zustand": "^4.4.5"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
