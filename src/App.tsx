@@ -10,13 +10,12 @@ import { moralisApiKey } from "@/config/moralis-connect";
 import { MoralisProvider } from "react-moralis";
 import { serverUrl, appId } from "@/config/moralis-connect";
 
-import { UserProvider } from "@/stores/container";
+import { UserProvider } from "@/stores/container/container";
 import theme from "@/theme/Theme";
-import themeMode from "@/stores/theme";
+import themeMode from "@/stores/theme/theme";
 
 export default function App() {
   const { themeModeState } = themeMode();
-
 
   if (!Moralis.Core.isStarted) {
     const moralisStart = async () => {

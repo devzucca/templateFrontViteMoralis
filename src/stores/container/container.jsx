@@ -4,8 +4,8 @@ const StoreContext = createContext(null);
 import { useMoralis } from "react-moralis";
 import { chainID, contracts } from "@/config/moralis-connect";
 import { Moralis } from "moralis-v1";
-import useGetNativeBalance from "@/stores/useGetNativeBalance";
-import useGetWalletTokenBalances from "@/stores/useGetWalletTokenBalances";
+import useGetNativeBalance from "@/stores/useGetNativeBalance/useGetNativeBalance";
+import useGetWalletTokenBalances from "@/stores/useGetWalletTokenBalances/useGetWalletTokenBalances";
 
 export const UserProvider = ({ children }) => {
   const { logout, enableWeb3, authenticate } = useMoralis();
@@ -81,11 +81,13 @@ export const UserProvider = ({ children }) => {
             });
           }
         } catch (e) {
+          console.log(`e is => ${e}`);
           e.message == "Cannot read properties of undefined (reading 'get')"
             ? (e.message = "an error occurred, please try again")
             : e.message;
           const errorMessage = JSON.stringify(e.message);
           const errorObjeto = JSON.parse(errorMessage);
+          throw errorObjeto; // throw the error again
         }
       },
 
