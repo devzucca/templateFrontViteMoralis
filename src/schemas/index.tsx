@@ -1,7 +1,4 @@
 import * as yup from "yup";
-import React, { useContext } from "react";
-// import FunctionMarketContext from "@context/function-market-context/FunctionMarketContext";
-// const { fileType } = useContext(FunctionMarketContext);
 
 const usernameMatch =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.*\$%\^&\*])(?=.{8,})/;
@@ -9,8 +6,6 @@ const passwordRules =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.*%&@\$%\^&\*])(?=.{8,})/;
 const usernameSignUp = /^(\S+$)/g;
 const minPriceVerify = /^[0-9]*$/;
-// const urlRule = /^((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
-// const email = /([A-Za-z0-9!#-'*+\-/=?^_`{-~\xA0-\x{10FFFF}]+(?:\.[A-Za-z0-9!#-'*+\-/=?^_`{-~\xA0-\x{10FFFF}])|(?:[ !#-\[\]-~\xA0-\x{10FFFF}]|\\[ -~])*)@((?:[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?|[\x00-\x{10FFFF}]*[\x80-\x{10FFFF}]+[\x00-\x{10FFFF}]*)(?:\.(?:[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?|[\x00-\x{10FFFF}]*[\x80-\x{10FFFF}]+[\x00-\x{10FFFF}]*))*)/
 
 export const SelectTypeCreateNftSchema = yup.object().shape({
   price: yup.string(),
@@ -26,11 +21,7 @@ export const SelectTypeCreateNftSchema = yup.object().shape({
 });
 
 export const CollectionScheme = yup.object().shape({
-  theFile: yup
-    .mixed()
-    .nullable()
-    // .notRequired()
-    .required("Required"),
+  theFile: yup.mixed().nullable().required("Required"),
 
   nameCollection: yup
     .string()
@@ -83,8 +74,11 @@ export const CreateUserScheme = yup.object().shape({
     .required("Required, Please Enter your User Name ")
     .matches(usernameSignUp, "spaces not allowed"),
 
-  email: yup.string().max(255).required("Email is required"),
-
+  email: yup
+    .string()
+    .max(255)
+    .email("Must be a valid email")
+    .required("Email is required"),
   password: yup
     .string()
     .required("Please Enter your password")
@@ -120,8 +114,7 @@ export const ForgotScheme = yup.object().shape({
 });
 
 export const createNftScheme = yup.object().shape({
-  theFile: yup.mixed().nullable().required(),
-  // .required("Required"),
+  theFile: yup.mixed().nullable().required("Require"),
 
   nameNftField: yup
     .string()
@@ -136,30 +129,23 @@ export const createNftScheme = yup.object().shape({
     .required("Required"),
 
   energy: yup.string().min(1, "Energy must be at least 1 characters long"),
-  // .required("Required"),
 
   strength: yup.string().min(1, "Strength must be at least 1 characters long"),
-  // .required("Required"),
 
   impact: yup.string().min(1, "Impact must be at least 1 characters long"),
-  // .required("Required"),
 
   sustainability: yup
     .string()
     .min(1, "Sustainability must be at least 1 characters long"),
-  // .required("Required"),
 
   rarity: yup.string().min(1, "Rarity must be at least 1 characters long"),
-  // .required("Required"),
 
   royalties: yup
     .string()
     .min(1, "Royalties must be at least 1 characters long"),
-  // .required("Required"),
 
   price: yup
     .string()
-    // porcentVerify.validateSync(price)
     .max(11, "amount not allowed maximum 10.000.000.000")
     .matches(minPriceVerify, "negative numbers are not allowed"),
   // .when(["minimumBid", "price"], {
@@ -186,13 +172,11 @@ export const createNftScheme = yup.object().shape({
   // .required("Required, Please Enter your User Name"),
 
   minPrice: yup.number(),
-  // .required('Required, Please Enter your password'),
 });
 
 export const createNftPerfilNft = yup.object().shape({
   price: yup
     .string()
-    // porcentVerify.validateSync(price)
     .max(11, "amount not allowed maximum 10.000.000.000")
     .matches(minPriceVerify, "negative numbers are not allowed"),
   // .when(["minimumBid", "price"], {
@@ -215,11 +199,7 @@ export const createNftPerfilNft = yup.object().shape({
     .max(11, "amount not allowed maximum 10.000.000.000")
     .matches(minPriceVerify, "negative numbers are not allowed"),
 
-  // .min(5, "User Name must be at least 5 characters long"),
-  // .required("Required, Please Enter your User Name"),
-
   minPrice: yup.number(),
-  // .required('Required, Please Enter your password'),
 });
 
 export const EditProfileSchema = yup.object().shape({
