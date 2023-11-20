@@ -3,7 +3,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
-import themeMode from "@/stores/theme/theme";
+import themeMode from "@/stores/Actions/Theme/storeTheme";
 
 function MyApp() {
   const { ChangeMode, themeModeState } = themeMode();

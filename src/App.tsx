@@ -10,9 +10,9 @@ import { moralisApiKey } from "@/config/moralis-connect";
 import { MoralisProvider } from "react-moralis";
 import { serverUrl, appId } from "@/config/moralis-connect";
 
-import { UserProvider } from "@/stores/container/container";
+import {AppContextProvider} from "@/context/AppContextProvider";
 import theme from "@/theme/Theme";
-import themeMode from "@/stores/theme/theme";
+import themeMode from "@/stores/Actions/Theme/storeTheme";
 
 export default function App() {
   const { themeModeState } = themeMode();
@@ -36,11 +36,11 @@ export default function App() {
       <CssBaseline />
       <React.StrictMode>
         <MoralisProvider appId={appId} serverUrl={serverUrl}>
-          <UserProvider>
+          <AppContextProvider>
             <Router>
               <MainAppRoutes />
             </Router>
-          </UserProvider>
+          </AppContextProvider>
         </MoralisProvider>
       </React.StrictMode>
     </ThemeProvider>

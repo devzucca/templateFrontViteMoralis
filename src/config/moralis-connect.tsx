@@ -6,13 +6,6 @@ const masterKey: string = import.meta.env.VITE_MORALIS_MASTER_KEY;
 const urlProvider: string = import.meta.env.VITE_ALCHEMY_URL_PROVIDER;
 const apiAlchemy: string = import.meta.env.VITE_ALCHEMY_PRIVATE_API_KEY;
 
-console.log("serverUrl", serverUrl);
-console.log("appId", appId);
-console.log("masterKey", masterKey);
-console.log("urlProvider", urlProvider);
-console.log("apiAlchemy", apiAlchemy);
-console.log("moralisApiKey", moralisApiKey);
-
 //Contracts Access
 const contracts: {
   token: string;

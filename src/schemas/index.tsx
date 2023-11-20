@@ -91,10 +91,8 @@ export const CreateUserScheme = yup.object().shape({
     .string()
     .required("Repeat Password is required")
     .when("password", {
-      is: (val: string | any[]) => (val && val.length > 0 ? true : false),
-      then: yup
-        .string()
-        .oneOf([yup.ref("password")], "Both password need to be the same"),
+      is: (val: string | any[], schema: yup.StringSchema<string>) =>
+        val && val.length > 0 ? schema.oneOf([yup.ref("password")], "Both passwords need to be the same") : schema,
     }),
 });
 

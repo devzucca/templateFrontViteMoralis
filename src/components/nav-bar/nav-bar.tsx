@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { useStoreInContext } from "@/stores/container/container";
 import { useNavigate } from "react-router-dom";
-
+import useBoundStore from "@/stores/index"
 import { AppBar, Box, Toolbar } from "@mui/material";
 
 import LogoImage from "@/components/nav-bar/LogoImage";
@@ -13,9 +12,8 @@ import Logo from "@/assets/Img/svg/NGM.svg";
 
 const Navbar = () => {
   let navigate = useNavigate();
-  const authenticated = useStoreInContext(
-    (state: { authenticated: any }) => state.authenticated
-  );
+
+  const { authenticated } = useBoundStore();
 
   return (
     <AppBar
