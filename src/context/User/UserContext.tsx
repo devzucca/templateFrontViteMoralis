@@ -46,26 +46,27 @@ const UserState = (props: { children: any }) => {
 
   const { logout, enableWeb3, authenticate } = useMoralis();
   const { user } = useMoralis();
-  const userAddress = user!.get("ethAddress");
+  // const userAddress = user!.get("ethAddress");
 
-  const {
-    DataPerfilUser,
-    User,
-    Authenticated,
-    setDataPerfilUser,
-    setUser,
-    setAuthenticated
-  } = useBoundStore();
+  // const {
+  //   DataPerfilUser,
+  //   User,
+  //   Authenticated,
+  //   setDataPerfilUser,
+  //   setUser,
+  //   setAuthenticated
+  // } = useBoundStore();
   
   const LoginMail = async (values: any) => {
+    const Authenticated = true
 
     if (!Authenticated) {
       await Moralis.User.logIn(values.username, values.password)
         .then(async function (user: any) {
 
           // const userMarketType = user.get("loginType"); => ejemplo para obtener datos del usuario
-          setAuthenticated(true)
-          setUser(user)
+          // setAuthenticated(true)
+          // setUser(user)
     
         })
         .catch(function (error: any) {
@@ -82,11 +83,11 @@ const UserState = (props: { children: any }) => {
   };
 
   const LogoutFunc = async () => {
-
+    const Authenticated = true
     if (Authenticated) {
       await logout();
-      setAuthenticated(false)
-      setUser([])
+      // setAuthenticated(false)
+      // setUser([])
       location.reload();
     }
     

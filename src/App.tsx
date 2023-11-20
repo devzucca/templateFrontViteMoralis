@@ -2,6 +2,7 @@ import React from "react";
 import Moralis from "moralis";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter as Router } from "react-router-dom";
+import { shallow } from 'zustand/shallow'
 
 import "@fontsource/poppins";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,10 +13,13 @@ import { serverUrl, appId } from "@/config/moralis-connect";
 
 import {AppContextProvider} from "@/context/AppContextProvider";
 import theme from "@/theme/Theme";
-import themeMode from "@/stores/Actions/Theme/storeTheme";
+import { useBoundStore } from "@/stores/index";
 
 export default function App() {
-  const { themeModeState } = themeMode();
+
+  const { themeModeState, ChangeMode } = useBoundStore((state: any) => state, shallow);
+
+  console.log('themeModeStateAPP', themeModeState);
 
   if (!Moralis.Core.isStarted) {
     const moralisStart = async () => {
@@ -32,6 +36,7 @@ export default function App() {
   );
 
   return (
+    <>
     <ThemeProvider theme={getTheme}>
       <CssBaseline />
       <React.StrictMode>
@@ -44,5 +49,6 @@ export default function App() {
         </MoralisProvider>
       </React.StrictMode>
     </ThemeProvider>
+    </>
   );
 }

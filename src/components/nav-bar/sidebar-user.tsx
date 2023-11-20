@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core/styles";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
@@ -8,11 +7,10 @@ import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import * as copy from "copy-to-clipboard";
-import React, { useState } from "react";
+import React from "react";
 
 
 import { NavLink } from "react-router-dom";

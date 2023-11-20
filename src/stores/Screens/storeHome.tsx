@@ -1,7 +1,5 @@
-import { createWithEqualityFn } from "zustand/traditional";
 
-
-const storeHome = createWithEqualityFn( (set: any, get: any) => ({
+export const storeHome = ( (set: any) => ({
   DataContentLive: [], // SET_DATA_CONTENT_LIVE
   DataContentExplore: [], // SET_DATA_CONTENT_EXPLORE
   DataContentUsers: [], // SET_DATA_CONTENT_USERS
@@ -11,4 +9,3 @@ const storeHome = createWithEqualityFn( (set: any, get: any) => ({
   setDataContentUsers: (value: any) => set({ DataContentUsers: value})
 }) );
 
-export default storeHome;

@@ -1,13 +1,14 @@
+import { useBoundStore } from "@/stores/index";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
-import themeMode from "@/stores/Actions/Theme/storeTheme";
+import { shallow } from 'zustand/shallow';
 
 function MyApp() {
-  const { ChangeMode, themeModeState } = themeMode();
 
+  const { themeModeState, ChangeMode } = useBoundStore((state: any) => state, shallow);
   const theme = useTheme();
 
   return (

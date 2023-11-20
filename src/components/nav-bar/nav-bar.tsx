@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useBoundStore from "@/stores/index"
+import { useBoundStore } from "@/stores/index";
 import { AppBar, Box, Toolbar } from "@mui/material";
 
 import LogoImage from "@/components/nav-bar/LogoImage";
@@ -11,9 +11,9 @@ import SideBar from "@/components/nav-bar/sidebar";
 import Logo from "@/assets/Img/svg/NGM.svg";
 
 const Navbar = () => {
-  let navigate = useNavigate();
 
-  const { authenticated } = useBoundStore();
+  let navigate = useNavigate();
+  const { Authenticated, themeModeState } = useBoundStore();
 
   return (
     <AppBar
@@ -52,7 +52,7 @@ const Navbar = () => {
             <SideBar />
           </Box>
           <Box>
-            {authenticated ? (
+            {Authenticated ? (
               <SideBarUser />
             ) : (
               <ButtonPrimary

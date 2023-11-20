@@ -15,15 +15,19 @@ const RenderNftState = (props: any) => {
 
   const { Moralis } = useMoralis();
 
-  const {
-    DataContentLive,
-    DataContentExplore,
-    DataContentUsers,
-    setDataContentLive,
-    setDataContentExplore,
-    setDataContentUsers
-  } = useBoundStore()
+  // const {
+  //   DataContentLive,
+  //   DataContentExplore,
+  //   DataContentUsers,
+  //   setDataContentLive,
+  //   setDataContentExplore,
+  //   setDataContentUsers
+  // } = useBoundStore()
 
+  const setDataContentLive = (resDataContentLive: any) =>{}
+  const setDataContentExplore= () =>{}
+  const setDataContentUsers = () =>{}
+  
   const getDataContentLive = async () => {
     let resDataContentLive: any = await Moralis.Cloud.run("getDataContentLive");
 
