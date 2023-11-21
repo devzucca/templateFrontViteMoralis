@@ -46,7 +46,7 @@ const UserState = (props: { children: any }) => {
 
   const { logout, enableWeb3, authenticate } = useMoralis();
   const { user } = useMoralis();
-  const userAddress = user!.get("ethAddress");
+  // const userAddress = user!.get("ethAddress");
 
   const {
     DataPerfilUser,
