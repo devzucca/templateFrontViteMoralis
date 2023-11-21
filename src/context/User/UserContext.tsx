@@ -2,12 +2,12 @@ import React, { createContext } from "react";
 import { useMoralis } from "react-moralis";
 import { Moralis } from "moralis-v1";
 
-import useBoundStore from "@/stores/index"
+import { useBoundStore } from "@/stores/index";
 
 
 type UserContextType = {
   LoginMail: (values: any) => Promise<void>;
-  SettingsUser: () => Promise<void>;
+  SettingsUser: (userAddress: string) => Promise<void>;
   LogoutFunc: () => Promise<void>;
 } | null;
 
@@ -46,16 +46,16 @@ const UserState = (props: { children: any }) => {
 
   const { logout, enableWeb3, authenticate } = useMoralis();
   const { user } = useMoralis();
-  // const userAddress = user!.get("ethAddress");
+  const userAddress = user!.get("ethAddress");
 
-  // const {
-  //   DataPerfilUser,
-  //   User,
-  //   Authenticated,
-  //   setDataPerfilUser,
-  //   setUser,
-  //   setAuthenticated
-  // } = useBoundStore();
+  const {
+    DataPerfilUser,
+    User,
+    Authenticated,
+    setDataPerfilUser,
+    setUser,
+    setAuthenticated
+  } = useBoundStore();
   
   const LoginMail = async (values: any) => {
     const Authenticated = true
@@ -78,8 +78,12 @@ const UserState = (props: { children: any }) => {
     }
   };
 
-  const SettingsUser = async () => {
-    await Moralis.Cloud.run("SetSettingsUser", { owner: userAddress });
+  const SettingsUser = async (userAddress: string) => {
+    try{
+      const SetSettingsUser = await Moralis.Cloud.run("SetSettingsUser", { owner: userAddress });
+    }catch(error: any){
+      console.error("🚀 error de SettingsUser", error);
+    }
   };
 
   const LogoutFunc = async () => {
