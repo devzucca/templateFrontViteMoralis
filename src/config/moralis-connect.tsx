@@ -1,10 +1,31 @@
 //Moralis Access
-const serverUrl: string = import.meta.env.VITE_MORALIS_SERVER_URL;
+const devMode: string =  import.meta.env.VITE_DEVELOPMENT_MODE;
+
 const appId: string = import.meta.env.VITE_MORALIS_APP_ID;
-const moralisApiKey: string = import.meta.env.VITE_MORALIS_API_KEY;
-const masterKey: string = import.meta.env.VITE_MORALIS_MASTER_KEY;
-const urlProvider: string = import.meta.env.VITE_ALCHEMY_URL_PROVIDER;
-const apiAlchemy: string = import.meta.env.VITE_ALCHEMY_PRIVATE_API_KEY;
+const masterKey: string = import.meta.env.VITE_MORALIS_MASTER_KEY_PROD;
+const owner =  import.meta.env.VITE_OWNER;
+
+const moralisApiKey: string = devMode === 'prod' ? import.meta.env.VITE_MORALIS_API_KEY_PROD : import.meta.env.VITE_MORALIS_API_KEY_DEV;
+const serverUrl: string = devMode === 'prod' ? import.meta.env.VITE_MORALIS_SERVER_URL_PROD : import.meta.env.VITE_MORALIS_SERVER_URL_DEV;
+const apiAlchemy: string = devMode === 'prod' ? import.meta.env.VITE_ALCHEMY_PRIVATE_API_KEY_PROD : import.meta.env.VITE_ALCHEMY_PRIVATE_API_KEY_DEV;
+const urlProvider: string = devMode === 'prod' ? import.meta.env.VITE_ALCHEMY_URL_PROVIDER_PROD : import.meta.env.VITE_ALCHEMY_URL_PROVIDER_DEV;
+
+const stripePubKey: string = devMode === 'prod' ? import.meta.env.VITE_STRIPE_PUBLIC_KEY_PROD : import.meta.env.VITE_STRIPE_PUBLIC_KEY_DEV;
+const stripePrivKey: string = devMode === 'prod' ? import.meta.env.VITE_STRIPE_PRIVATE_KEY_PROD : import.meta.env.VITE_STRIPE_PRIVATE_KEY_DEV;
+const stripeProducKNRT: string = devMode === 'prod' ? import.meta.env.VITE_STRIPE_PRODUCT_KNRT_PROD : import.meta.env.VITE_STRIPE_PRODUCT_KNRT_DEV;
+const stripeProducMatic: string = devMode === 'prod' ? import.meta.env.VITE_STRIPE_PRODUCT_MATIC_PROD : import.meta.env.VITE_STRIPE_PRODUCT_MATIC_DEV;
+const stripeProducTestToken: string = devMode === 'prod' ? import.meta.env.VITE_STRIPE_PRODUCT_KNRT_TEST_CNRT_PROD : import.meta.env.VITE_STRIPE_PRODUCT_KNRT_TEST_CNRT_DEV;
+
+const token = devMode === 'prod' ? import.meta.env.VITE_TOKEN_ERC20_PROD : import.meta.env.VITE_TOKEN_ERC20_DEV;
+const auction = devMode === 'prod' ? import.meta.env.VITE_TOKEN_ERC721_AUCTION_PROD : import.meta.env.VITE_TOKEN_ERC721_AUCTION_DEV;
+const collection = devMode === 'prod' ? import.meta.env.VITE_TOKEN_ERC721_COLLECTION_PROD : import.meta.env.VITE_TOKEN_ERC721_COLLECTION_DEV;
+
+const red = devMode === 'prod' ? import.meta.env.VITE_CHAIN_ID_MAINNET_PROD : import.meta.env.VITE_CHAIN_ID_TESTNET_DEV;
+
+const currencyPriceContract = devMode === 'prod' ? import.meta.env.VITE_CURRENCY_PRICE_CONTRACT_PROD : import.meta.env.VITE_CURRENCY_PRICE_CONTRACT_DEV;
+const blockExplorerUrl = devMode === 'prod' ? import.meta.env.VITE_BLOCK_EXPLORER_URL_PROD : import.meta.env.VITE_BLOCK_EXPLORER_URL_DEV;
+const nameToken = devMode === 'prod' ? import.meta.env.VITE_NAME_TOKEN_PROD : import.meta.env.VITE_NAME_TOKEN_DEV;
+
 
 //Contracts Access
 const contracts: {
@@ -12,50 +33,33 @@ const contracts: {
   auction: string;
   collection: string;
 } = {
-  token:
-    /* "0x34b60594ddd22f661fc83ec4b54e183ddc871319" */ "0x11142365DDbc92C3547b8A074289409B5432CA8b",
-  auction: "0xE76Bc6E52C2Db6054C4E63f2C9e72ADE240AC3DE",
-  collection: "0x1C7d04C4DDEE4d13c31E800568039AcEabDCc3C8",
+  token: token,
+  auction: auction,
+  collection: collection,
 };
 
 const chainID: {
-  mainNet: string;
-  testNet: string;
+  red: string;
 } = {
-  mainNet: import.meta.env.VITE_CHAIN_ID_MAINNET,
-  testNet: import.meta.env.VITE_CHAIN_ID_TESTNET,
+  red: red
 };
-console.log("mainNet", chainID.mainNet);
-console.log("testNet", chainID.testNet);
+
 //creator access
 const creator: {
   owner: string;
-  artist: string;
 } = {
-  owner: "0xb0A7c00EA503AdbdFE0071bdd9eB6Fbb18e7C6B5",
-  artist: "0xb0A7c00EA503AdbdFE0071bdd9eB6Fbb18e7C6B5",
+  owner: owner,
 };
 
 //Auth Access
 const auth: {
-  chainId: number;
-  chainName: string;
-  currencyName: string;
-  currencySymbol: string;
   currencyContract: string;
-  rpcUrl: string;
   blockExplorerUrl: string;
   token: string;
 } = {
-  chainId: 80001, //137,
-  chainName: "Polygon",
-  currencyName: "MATIC",
-  currencySymbol: "MATIC",
-  currencyContract:
-    "0xCC42724C6683B7E57334c4E856f4c9965ED682bD" /* "0x11142365DDbc92C3547b8A074289409B5432CA8b" */,
-  rpcUrl: "https://rpc-mumbai.maticvigil.com/", //"https://polygon-rpc.com/",
-  blockExplorerUrl: "https://mumbai.polygonscan.com/", //"https://polygonscan.com/",
-  token: "KNRT" /* "KNRT" */,
+  currencyContract: currencyPriceContract, // direccion de smart-contract de MATIC EN BSC
+  blockExplorerUrl: blockExplorerUrl, 
+  token: nameToken,
 };
 
 export {
@@ -69,4 +73,9 @@ export {
   auth,
   apiAlchemy,
   urlProvider,
+  stripePubKey,
+  stripePrivKey,
+  stripeProducKNRT,
+  stripeProducMatic,
+  stripeProducTestToken
 };
