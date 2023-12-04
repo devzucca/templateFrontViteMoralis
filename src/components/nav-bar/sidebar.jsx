@@ -56,14 +56,10 @@ export default function SideBar() {
 
   return (
     <>
-      <IconButton
-        onClick={handleDrawerOpen}
-        color="inherit"
-        sx={{ padding: 0 }}
-      >
+      <IconButton onClick={handleDrawerOpen}>
         <MenuIcon
           sx={{
-            color: "#D711FF",
+            color: "icon.third",
           }}
         />
       </IconButton>
@@ -76,9 +72,9 @@ export default function SideBar() {
             height: "fit-content",
             backgroundColor: "background.default",
             borderRadius: "10px",
-            my: "45px",
-            mx: "25px",
-            py: "10px",
+            right: "10px",
+            top: "50px",
+            p: "10px",
             boxShadow: "0px 4px 4px 2px rgba(215, 17, 255)",
           },
         }}
@@ -86,60 +82,34 @@ export default function SideBar() {
         anchor="right"
         open={open}
       >
-        <Box
-          sx={{
-            height: "100%",
-            border: "none",
-            backgroundColor: "background.default",
-          }}
-        >
-          <Stack>
-            <Stack spacing={1}>
-              <Box
-                width="100%"
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box width="100%">
-                  <Typography
-                    sx={{
-                      fontFamily: "Poppins",
-                      textAlign: "center",
-                      color: "#D711FF",
-                      fontStyle: "normal",
-                      fontSize: "25px",
-                      fontWeight: "800",
-                    }}
-                  >
-                    Menu
-                  </Typography>
-                </Box>
-                <ArrowRightRoundedIcon
-                  sx={{ fontSize: "35px", cursor: "pointer", color: "#D711FF" }}
-                  onClick={handleDrawerClose}
-                />
-              </Box>
-            </Stack>
-
-            <Stack
-              spacing={1}
-              sx={{
-                display: {
-                  xs: "flex",
-                  lg: "none",
-                  flexDirection: "column",
-                  width: " calc(100% - 35px)",
-                },
-                alignItems: "center",
-              }}
-            >
-              <MenuButtons title="Home" to="/home" />
-              <MenuButtons title="Store" to="/store" />
-              <MenuButtons title="Discover" to="/discover" />
-            </Stack>
+        <Stack>
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <Typography variant="h3" width="100%" textAlign="center">
+              Menu
+            </Typography>
+            <ArrowRightRoundedIcon
+              sx={{ fontSize: "35px", cursor: "pointer", color: "#D711FF" }}
+              onClick={handleDrawerClose}
+            />
           </Stack>
-        </Box>
+          <Stack
+            spacing={1}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              width: " calc(100% - 35px)",
+            }}
+          >
+            <MenuButtons title="Home" to="/home" />
+            <MenuButtons title="Store" to="/store" />
+            <MenuButtons title="Discover" to="/discover" />
+          </Stack>
+        </Stack>
       </Drawer>
     </>
   );

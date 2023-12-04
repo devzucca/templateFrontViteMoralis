@@ -1,5 +1,4 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Box, Typography } from "@mui/material";
 import { NavLink, useLocation } from "react-router-dom";
 
 function NavItem(props) {
@@ -18,10 +17,12 @@ function NavItem(props) {
           variant="h4"
           sx={{
             transition: "1s",
-            color: location.pathname === props.to ? "#D711FF" : "text.primary",
+            color:
+              location.pathname === props.to
+                ? "text.secondary"
+                : "text.primary",
             "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0)",
-              color: "#D711FF",
+              color: "text.third",
             },
           }}
         >

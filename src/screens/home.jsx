@@ -4,11 +4,13 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
-import { shallow } from 'zustand/shallow';
+import { shallow } from "zustand/shallow";
 
 function MyApp() {
-
-  const { themeModeState, ChangeMode } = useBoundStore((state: any) => state, shallow);
+  const { themeModeState, ChangeMode } = useBoundStore(
+    (state) => state,
+    shallow
+  );
   const theme = useTheme();
 
   return (
