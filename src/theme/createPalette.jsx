@@ -29,12 +29,12 @@ export function createPalette(mode) {
           text: {
             primary: "#3B3B3B",
             secondary: "#F5F5F5",
-            third: "#D711FF",
+            third: "#6366F1",
           },
           icon: {
             primary: "#3B3B3B",
             secondary: "#F5F5F5",
-            third: "#D711FF",
+            third: "#6366F1",
           },
         }
       : {
@@ -45,22 +45,17 @@ export function createPalette(mode) {
           text: {
             primary: "#F5F5F5",
             secondary: "#3B3B3B",
-            third: "#D711FF",
+            third: "#6366F1",
           },
           icon: {
             primary: "#F5F5F5",
             secondary: "#3B3B3B",
-            third: "#D711FF",
+            third: "#6366F1",
           },
         }),
     neutral,
     primary: indigo,
     success,
-    text: {
-      primary: neutral[900],
-      secondary: neutral[500],
-      disabled: alpha(neutral[900], 0.38),
-    },
     warning,
   };
 }

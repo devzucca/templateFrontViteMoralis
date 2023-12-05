@@ -5,17 +5,18 @@ import { shallow } from "zustand/shallow";
 import ButtonSecondary from "@/components/buttons/buttonSecondary";
 
 const style = {
-  backdropFilter: "blur(4px)",
   backgroundColor: "background.paper",
   position: "relative",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { xs: "90%", sm: 450, md: 480, lg: 500 },
+  width: { xs: "90%", sm: "350px  ", md: "450px", lg: "500px" },
   p: "20px",
-  borderRadius: "40px",
+  borderRadius: "20px",
   display: "flex",
   justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
 };
 
 export default function ModalGlobal() {
@@ -30,13 +31,23 @@ export default function ModalGlobal() {
   return (
     <Modal
       open={stateModal}
-      onClose={handleClose}
-      SX={{
-        backgroundColor: "rgba(49,49,49)",
-        backdropFilter: "blur(15px)",
+      disableEnforceFocus
+      sx={{
+        ".css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop": {
+          backgroundColor: "transparent",
+          backdropFilter: "blur(1px)",
+        },
       }}
     >
       <Box sx={style}>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "text.third",
+          }}
+        >
+          {titleModal}
+        </Typography>
         <ButtonSecondary onClick={handleClose}>Close</ButtonSecondary>
       </Box>
     </Modal>
