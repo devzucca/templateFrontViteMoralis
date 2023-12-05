@@ -38,15 +38,14 @@ function MyApp() {
       }}
     >
       <IconButton
-        sx={{ ml: 1 }}
+        sx={{ ml: 1, color: "text.third" }}
         onClick={() => ChangeMode(themeModeState)}
-        color="inherit"
       >
         {theme.palette.mode} mode
         {theme.palette.mode === "dark" ? (
-          <Brightness7Icon />
+          <Brightness7Icon sx={{ color: "icon.third" }} />
         ) : (
-          <Brightness4Icon />
+          <Brightness4Icon sx={{ color: "icon.third" }} />
         )}
       </IconButton>
       <Button

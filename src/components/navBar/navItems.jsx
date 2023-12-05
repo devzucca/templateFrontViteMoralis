@@ -18,9 +18,7 @@ function NavItem(props) {
           sx={{
             transition: "1s",
             color:
-              location.pathname === props.to
-                ? "text.secondary"
-                : "text.primary",
+              location.pathname === props.to ? "text.third" : "text.primary",
             "&:hover": {
               color: "text.third",
             },
