@@ -23,9 +23,9 @@ const token_knrt =
   "https://ipfs.moralis.io:2053/ipfs/QmNx9ZtNnzAoHFWpBVXX7ow2W75Jm5bSNUu1rL67YE222W/0xE568887Bf75AeA78147730CC4101aDf09626759E/token_knrt.svg";
 
 export default function SideBarUser() {
+  const [open, setOpen] = React.useState(false);
   const ethAddress = "";
   const balanceKNRT = 0;
-  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);

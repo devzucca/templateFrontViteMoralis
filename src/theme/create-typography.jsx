@@ -23,19 +23,19 @@ export const createTypography = () => {
     body2: {
       fontWeight: "800",
       "@media (min-width:0px)": {
-        fontSize: "20px",
+        fontSize: "12px",
       },
       "@media (min-width:600px)": {
-        fontSize: "24px",
+        fontSize: "12px",
       },
       "@media (min-width:900px)": {
-        fontSize: "24px",
+        fontSize: "12px",
       },
       "@media (min-width:1200px)": {
-        fontSize: "40px",
+        fontSize: "14px",
       },
       "@media (min-width:1800px)": {
-        fontSize: "45px",
+        fontSize: "14px",
       },
     },
     button: {

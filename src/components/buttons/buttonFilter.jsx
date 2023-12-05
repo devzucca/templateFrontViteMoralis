@@ -1,5 +1,5 @@
-import Button from "@mui/material/Button";
 import * as React from "react";
+import { Button } from "@mui/material";
 
 function ButtonStyles(
   width = "auto",

@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Grid, CardMedia, CircularProgress, Toolbar } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import Navbar from "@/components/nav-bar/nav-bar";
+import Navbar from "@/components/navBar/navBar";
+import AlertGlobal from "@/components/alert/alert";
+import ModalGlobal from "@/components/modal/modal";
 
 const Home = React.lazy(() => import("@/screens/home"));
 
@@ -42,6 +44,8 @@ export default function Navigator() {
     >
       <Navbar />
       <Toolbar />
+      <AlertGlobal />
+      <ModalGlobal />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

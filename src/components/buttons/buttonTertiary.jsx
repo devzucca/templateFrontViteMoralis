@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
 import * as React from "react";
+import { Button } from "@mui/material";
 
 function ButtonStyles(
   width = "fit-content",
@@ -25,11 +25,10 @@ function ButtonStyles(
   };
 }
 
-export default function ButtonPrimary(props) {
+export default function ButtonTertiary(props) {
   return (
     <Button
       disabled={props.disabled}
-      variant="button-primary"
       type={props.type}
       sx={ButtonStyles(
         props.width,

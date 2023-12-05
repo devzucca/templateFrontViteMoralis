@@ -1,22 +1,32 @@
 import { useBoundStore } from "@/stores/index";
+import { shallow } from "zustand/shallow";
+import { useTheme, Box, IconButton, Button } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import { useTheme } from "@mui/material/styles";
-import { shallow } from "zustand/shallow";
 
 function MyApp() {
-  const { themeModeState, ChangeMode } = useBoundStore(
-    (state) => state,
-    shallow
-  );
+  const {
+    themeModeState,
+    ChangeMode,
+    ChangeStateAlert,
+    stateAlert,
+    ChangeStateModal,
+  } = useBoundStore((state) => state, shallow);
+
   const theme = useTheme();
+
+  const handleOpenAlert = () => {
+    ChangeStateAlert(true);
+  };
+  const handleOpenModal = () => {
+    ChangeStateModal(true);
+  };
 
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: "column",
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
@@ -24,20 +34,33 @@ function MyApp() {
         color: "text.primary",
         borderRadius: 1,
         p: 3,
+        gap: "20px",
       }}
     >
-      {theme.palette.mode} mode
       <IconButton
         sx={{ ml: 1 }}
         onClick={() => ChangeMode(themeModeState)}
         color="inherit"
       >
+        {theme.palette.mode} mode
         {theme.palette.mode === "dark" ? (
           <Brightness7Icon />
         ) : (
           <Brightness4Icon />
         )}
       </IconButton>
+      <Button
+        onClick={() => handleOpenAlert()}
+        sx={{ backgroundColor: "background.paper", color: "text.third" }}
+      >
+        Alert
+      </Button>
+      <Button
+        onClick={() => handleOpenModal()}
+        sx={{ backgroundColor: "background.paper", color: "text.third" }}
+      >
+        Modal
+      </Button>
     </Box>
   );
 }

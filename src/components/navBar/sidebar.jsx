@@ -1,17 +1,11 @@
-import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
-import { Typography } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
 import * as React from "react";
-import Drawer from "@mui/material/Drawer";
-
 import { NavLink } from "react-router-dom";
+import { Typography, Box, IconButton, Stack, Drawer } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
 
 export default function SideBar() {
   const drawerWidth = 180;
-
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {

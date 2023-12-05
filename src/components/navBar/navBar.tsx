@@ -2,11 +2,11 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBoundStore } from "@/stores/index";
 import { AppBar, Box, Toolbar } from "@mui/material";
-import LogoImage from "@/components/nav-bar/LogoImage";
-import NavItem from "@/components/nav-bar/nav-items";
-import ButtonPrimary from "@/components/buttons/button-primary";
-import SideBarUser from "@/components/nav-bar/sidebar-user";
-import SideBar from "@/components/nav-bar/sidebar";
+import LogoImage from "@/components/navBar/LogoImage";
+import NavItem from "@/components/navBar/navItems";
+import ButtonPrimary from "@/components/buttons/buttonPrimary";
+import SideBarUser from "@/components/navBar/sidebarUser";
+import SideBar from "@/components/navBar/sidebar";
 import Logo from "@/assets/Img/svg/NGM.svg";
 
 const Navbar = () => {
