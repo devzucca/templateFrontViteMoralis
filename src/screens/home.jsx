@@ -27,13 +27,13 @@ function MyApp() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
+        // width: "100%",
+        // alignItems: "center",
+        // justifyContent: "center",
         bgcolor: "background.default",
         color: "text.primary",
         borderRadius: 1,
-        p: 3,
+        // p: 3,
         gap: "20px",
       }}
     >

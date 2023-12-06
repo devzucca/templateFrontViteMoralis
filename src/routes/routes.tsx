@@ -2,10 +2,12 @@ import * as React from "react";
 import { Grid, CardMedia, CircularProgress, Toolbar } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "@/components/navBar/navBar";
+import NavbarDrawer from "@/components/navBar/navBarDrawer";
 import AlertGlobal from "@/components/alert/alert";
 import ModalGlobal from "@/components/modal/modal";
 
 const Home = React.lazy(() => import("@/screens/home"));
+const NotFoundPage = React.lazy(() => import("@/screens/notFoundPage"));
 
 export default function Navigator() {
   let Logo = "";
@@ -28,7 +30,7 @@ export default function Navigator() {
           <CardMedia
             component="img"
             image={Logo}
-            alt="Koolinart Logo"
+            alt="Logo"
             sx={{
               width: { xs: 150, sm: 150, md: 200, lg: "497px", xl: 300 },
               objectFit: "cover",
@@ -42,13 +44,21 @@ export default function Navigator() {
         </Grid>
       }
     >
-      <Navbar />
-      <Toolbar />
+      {/*Navbar primary */}
+      {/* <Navbar /> */}
+      {/* <Toolbar /> */}
+
+      {/*Navbar secondary */}
+      <NavbarDrawer>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </NavbarDrawer>
+
+      {/*other tools */}
       <AlertGlobal />
       <ModalGlobal />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
     </React.Suspense>
   );
 }
