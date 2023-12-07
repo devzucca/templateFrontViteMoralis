@@ -46,7 +46,7 @@ export default function Navigator() {
     >
       {/*Navbar primary */}
       {/* <Navbar /> */}
-      {/* <Toolbar /> */}
+      {/* <Toolbar sx={{m:"10px"}} /> */}
 
       {/*Navbar secondary */}
       <NavbarDrawer>

@@ -1,19 +1,18 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import {
-  Typography,
-  Box,
-  CardMedia,
-  Divider,
-  Drawer,
-  IconButton,
-  Stack,
-} from "@mui/material";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import CardMedia from "@mui/material/CardMedia";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import * as copy from "copy-to-clipboard";
+import React from "react";
+
+import { NavLink } from "react-router-dom";
 
 const matic =
   "https://ipfs.moralis.io:2053/ipfs/QmfA199t9GRga69GwwAMfNYRUbLVCsjz3ESyiwVULyDV4i/0xE568887Bf75AeA78147730CC4101aDf09626759E/polygon_matic_logo.svg";
@@ -23,9 +22,11 @@ const token_knrt =
   "https://ipfs.moralis.io:2053/ipfs/QmNx9ZtNnzAoHFWpBVXX7ow2W75Jm5bSNUu1rL67YE222W/0xE568887Bf75AeA78147730CC4101aDf09626759E/token_knrt.svg";
 
 export default function SideBarUser() {
-  const [open, setOpen] = React.useState(false);
   const ethAddress = "";
+
   const balanceKNRT = 0;
+
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -100,7 +101,7 @@ export default function SideBarUser() {
 
       <Drawer
         sx={{
-          width: 0,
+          width: { xs: 230, sm: 290 },
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: { xs: 230, sm: 290, md: 320, lg: 350, xl: 420 },

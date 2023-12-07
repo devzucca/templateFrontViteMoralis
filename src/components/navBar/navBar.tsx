@@ -30,7 +30,7 @@ const Navbar = () => {
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
-          p: "10px",
+          m: "10px",
         }}
       >
         <Box>
