@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
@@ -30,6 +31,9 @@ import {
   Menu,
   MenuOpen,
 } from "@mui/icons-material";
+import ButtonPrimary from "@/components/buttons/buttonPrimary";
+import { UserContext } from "@/context/User/UserContext";
+
 const drawerWidth = 180;
 
 const openedMixin = (theme) => ({
@@ -133,6 +137,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export default function NavbarDrawer(props) {
+
+  const { LoginMail } = useContext(UserContext);
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -205,6 +212,9 @@ export default function NavbarDrawer(props) {
           <Typography variant="h6" noWrap component="div">
             Mini variant drawer
           </Typography>
+          <ButtonPrimary onClick={() => LoginMail()}>
+            login
+          </ButtonPrimary>
         </Toolbar>
       </CustomAppBar>
       <Drawer variant="permanent" open={open}>

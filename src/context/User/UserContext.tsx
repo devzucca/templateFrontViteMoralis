@@ -58,24 +58,23 @@ const UserState = (props: { children: any }) => {
   } = useBoundStore();
   
   const LoginMail = async (values: any) => {
-    const Authenticated = true
+      alert("ejecuta conext")
+    // if (!Authenticated) {
+    //   await Moralis.User.logIn(values.username, values.password)
+    //     .then(async function (user: any) {
 
-    if (!Authenticated) {
-      await Moralis.User.logIn(values.username, values.password)
-        .then(async function (user: any) {
-
-          // const userMarketType = user.get("loginType"); => ejemplo para obtener datos del usuario
-          // setAuthenticated(true)
-          // setUser(user)
+    //       // const userMarketType = user.get("loginType"); => ejemplo para obtener datos del usuario
+    //       setAuthenticated(true)
+    //       setUser(user)
     
-        })
-        .catch(function (error: any) {
-          const errorMessage = JSON.stringify(error);
-          const errorObjeto = JSON.parse(errorMessage);
+    //     })
+    //     .catch(function (error: any) {
+    //       const errorMessage = JSON.stringify(error);
+    //       const errorObjeto = JSON.parse(errorMessage);
 
-          console.error("🚀 error de login", error);
-        });
-    }
+    //       console.error("🚀 error de login", error);
+    //     });
+    // }
   };
 
   const SettingsUser = async (userAddress: string) => {

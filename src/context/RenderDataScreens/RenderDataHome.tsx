@@ -24,7 +24,6 @@ const RenderNftState = (props: any) => {
     setDataContentUsers
   } = useBoundStore()
 
-  
   const getDataContentLive = async () => {
     let resDataContentLive: any = await Moralis.Cloud.run("getDataContentLive");
 
